@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>知識は、貯めるだけでは腐る｜田原研究室 2026.05.05</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/theme/white.css">
+  <style>
+    :root {
+      --main-color: #2c3e50;
+      --accent-color: #2980b9;
+    }
+    .reveal {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', 'Noto Sans JP', sans-serif;
+    }
+    .reveal h1, .reveal h2, .reveal h3 {
+      color: var(--main-color);
+      text-transform: none;
+      letter-spacing: 0.02em;
+    }
+    .reveal h1 { font-size: 1.8em; margin-bottom: 0.3em; }
+    .reveal h2 { font-size: 1.3em; }
+    .reveal p, .reveal li { line-height: 1.7; }
+    .reveal ul { margin-top: 0.4em; }
+
+    /* セクション区切りスライド */
+    .section-slide {
+      background: var(--main-color) !important;
+    }
+    .section-slide h1, .section-slide h2, .section-slide p {
+      color: #fff !important;
+    }
+    .section-slide h2 { color: #bdc3c7 !important; }
+
+    /* 吹き出し風引用 */
+    .reveal blockquote {
+      background: #eaf0fb;
+      border-left: 6px solid var(--main-color);
+      border-radius: 4px;
+      padding: 14px 20px;
+      color: var(--main-color);
+      font-style: normal;
+      box-shadow: none;
+      width: 90%;
+    }
+
+    /* フロー図 */
+    .flow {
+      font-size: 0.82em;
+      line-height: 1.8;
+      text-align: center;
+      background: #f4f6f8;
+      border-radius: 8px;
+      padding: 10px 20px;
+      margin: 10px auto;
+    }
+    .flow .arrow { color: var(--accent-color); font-size: 1.1em; }
+    .flow .highlight { color: var(--accent-color); font-weight: bold; }
+
+    /* テーブル */
+    .reveal table {
+      font-size: 0.85em;
+      width: 100%;
+      margin: 0 auto;
+    }
+    .reveal table th {
+      background: var(--main-color);
+      color: #fff;
+      padding: 10px 16px;
+    }
+    .reveal table td {
+      padding: 10px 16px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    /* ナンバリングリスト */
+    .num-list { list-style: none; padding: 0; }
+    .num-list li { margin: 16px 0; padding-left: 8px; }
+    .num-list li b { color: var(--accent-color); }
+
+    /* タイトルスライド */
+    .title-slide h1 { color: #fff !important; font-size: 1.6em; }
+    .title-slide h2 { color: #bdc3c7 !important; font-size: 0.9em; }
+    .title-slide p  { color: #ecf0f1 !important; }
+  </style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- ==================== タイトル ==================== -->
+<section data-background="#2c3e50" class="title-slide">
+  <h1>知識は、貯めるだけでは腐る</h1>
+  <h2>Claude Code × Obsidian で作った「循環するしくみ」</h2>
+  <p style="margin-top:40px;">木本 努（いっきょう）<br>2026.05.05 田原研究室</p>
+</section>
+
+<!-- ==================== 自己紹介 ==================== -->
+<section>
+  <h1>自己紹介</h1>
+  <ul>
+    <li>キャリアコンサルタント</li>
+    <li>落語 × キャリア支援 を実践中</li>
+    <li>メルマガ「影褒めLUCKGO！」877号継続中</li>
+    <li>Claude Code × Obsidian で知識管理を実践</li>
+  </ul>
+</section>
+
+<!-- ==================== 今日話すこと ==================== -->
+<section>
+  <h1>今日話すこと</h1>
+  <ul class="num-list">
+    <li><b>1.</b> Before ― 知識が止まっていた頃</li>
+    <li><b>2.</b> Claude Code × Obsidian で何が変わったか</li>
+    <li><b>3.</b> それでも半開きだった理由</li>
+    <li><b>4.</b> 読者コメント が循環のエンジンだった</li>
+  </ul>
+  <blockquote>最後にひとつお願いがあります</blockquote>
+</section>
+
+<!-- ==================== 第1部セクション ==================== -->
+<section data-background="#2c3e50" class="section-slide">
+  <h1>第1部</h1>
+  <h2>Before ― 閉じた循環</h2>
+</section>
+
+<!-- 知識が止まる状態 -->
+<section>
+  <h1>知識が「止まる」状態</h1>
+  <div class="flow">
+    経験・読書・対話<br>
+    <span class="arrow">↓</span><br>
+    メモ・Obsidianに保存<br>
+    <span class="arrow">↓</span><br>
+    　　眠る…　忘れる…
+  </div>
+  <ul>
+    <li>インプットは増える</li>
+    <li>でもアウトプットが出ない</li>
+    <li><strong>ぼく自身がそうだった</strong></li>
+  </ul>
+</section>
+
+<!-- なぜ止まるのか -->
+<section>
+  <h1>なぜ止まるのか？</h1>
+  <table>
+    <tr><th>問題</th><th>内容</th></tr>
+    <tr><td><strong>変換コストが高い</strong></td><td>メモ → 発信の壁が越えられない</td></tr>
+    <tr><td><strong>接続されていない</strong></td><td>知識が点のまま散らばる</td></tr>
+    <tr><td><strong>摩擦がない</strong></td><td>外からの問いが来ない</td></tr>
+  </table>
+</section>
+
+<!-- ==================== 第2部セクション ==================== -->
+<section data-background="#2c3e50" class="section-slide">
+  <h1>第2部</h1>
+  <h2>Claude Code × Obsidian で何が変わったか</h2>
+</section>
+
+<!-- ツールの組み合わせ -->
+<section>
+  <h1>ツールの組み合わせ</h1>
+  <table>
+    <tr><th>ツール</th><th>役割</th></tr>
+    <tr><td><strong>Obsidian</strong></td><td>知識の「場所」</td></tr>
+    <tr><td><strong>Claude Code</strong></td><td>知識の「変換エンジン」</td></tr>
+  </table>
+  <p style="margin-top:30px; text-align:center; font-size:1.1em;">
+    この2つで、<strong>知識が流れ始めた</strong>
+  </p>
+</section>
+
+<!-- やったこと① -->
+<section>
+  <h1>やったこと① ― 蓄積の構造化</h1>
+  <ul>
+    <li>メルマガ <strong>835号</strong> を Obsidian に変換・整理</li>
+    <li>frontmatter で検索・分類が可能に</li>
+    <li>「眠っていた知識」が引き出せるようになった</li>
+  </ul>
+  <blockquote>点だったものに、<strong>住所がついた</strong></blockquote>
+</section>
+
+<!-- やったこと② -->
+<section>
+  <h1>やったこと② ― 接続の可視化</h1>
+  <ul>
+    <li>Graph View で WikiLink <strong>24本</strong> 接続</li>
+    <li>「あの話とこの話がつながっていた」という発見</li>
+    <li>点が <strong>線</strong> になる瞬間</li>
+  </ul>
+  <blockquote>つながって初めて、知識は使えるようになる</blockquote>
+</section>
+
+<!-- やったこと③ EETA -->
+<section>
+  <h1>やったこと③ ― 変換プロセスの設計</h1>
+  <div class="flow">
+    <span class="highlight">Explore</span>　探索（メルマガ・ノートを掘る）<br>
+    <span class="arrow">↓</span><br>
+    <span class="highlight">Extract</span>　抽出（使えるエッセンスを取り出す）<br>
+    <span class="arrow">↓</span><br>
+    <span class="highlight">Transform</span>　変換（LinkedIn・note用に書き直す）<br>
+    <span class="arrow">↓</span><br>
+    <span class="highlight">Apply</span>　発信（届ける）
+  </div>
+  <p style="text-align:center;">変換コストが下がった → <strong>発信量が増えた</strong></p>
+</section>
+
+<!-- ==================== 第3部セクション ==================== -->
+<section data-background="#2c3e50" class="section-slide">
+  <h1>第3部</h1>
+  <h2>それでも「半開き」だった</h2>
+</section>
+
+<!-- 半開き -->
+<section>
+  <h1>発信は増えた。でも何かが足りなかった。</h1>
+  <ul>
+    <li>知識は流れ始めた</li>
+    <li>EETAで発信できるようになった</li>
+    <li>でも循環は <strong>「自分 → 外」の一方通行</strong></li>
+  </ul>
+  <blockquote>外から何かが返ってこないと、<br>エンジンは止まる</blockquote>
+</section>
+
+<!-- ==================== 第4部セクション ==================== -->
+<section data-background="#2c3e50" class="section-slide">
+  <h1>第4部</h1>
+  <h2>読者コメントが循環のエンジンだった</h2>
+</section>
+
+<!-- コメントが来た日 -->
+<section>
+  <h1>転機：読者からコメントが来た日</h1>
+  <blockquote>「あの話、自分のことかと思いました」</blockquote>
+  <ul>
+    <li>自分では気づいていなかった問いが届いた</li>
+    <li>それが <strong>次のメルマガのネタ</strong> になった</li>
+    <li>そしてまたコメントが来た</li>
+  </ul>
+</section>
+
+<!-- コメントの3役割 -->
+<section>
+  <h1>コメントが果たす3つの役割</h1>
+  <ul class="num-list">
+    <li><b>1. 問いの供給</b><br>自分では見えない角度を持ってくる</li>
+    <li><b>2. 精度の向上</b><br>「刺さった言葉」が次の設計に使える</li>
+    <li><b>3. 継続のエネルギー</b><br>「読まれている」実感が書く力になる</li>
+  </ul>
+</section>
+
+<!-- 循環の完成形 -->
+<section>
+  <h1>循環の完成形</h1>
+  <div class="flow" style="font-size:0.75em; line-height:1.55; padding:8px 20px;">
+    経験・インプット<br>
+    <span class="arrow">↓</span><br>
+    Obsidian（蓄積・接続）<br>
+    <span class="arrow">↓</span>　Claude Code<br>
+    メルマガ・LinkedIn（発信）<br>
+    <span class="arrow">↓</span><br>
+    <span class="highlight">読者のコメント　← ここが外部エンジン</span><br>
+    <span class="arrow">↓</span><br>
+    新しい問い・ネタ　<span class="arrow">↓</span>（また最初へ）
+  </div>
+</section>
+
+<!-- ==================== CTA ==================== -->
+<section data-background="#2c3e50" class="section-slide">
+  <h1>お願いがあります</h1>
+</section>
+
+<section>
+  <h1>あなたのコメントが循環の部品になります</h1>
+  <ul>
+    <li>「読むだけ」でも歓迎です</li>
+    <li>でも、コメントが届いた日が <strong>いちばん嬉しい</strong></li>
+    <li>あなたの感じたことが、ぼくの次のネタになります</li>
+  </ul>
+  <blockquote>登録して、感じたことを送ってください</blockquote>
+</section>
+
+<!-- メルマガ登録 -->
+<section data-background="#2c3e50" class="title-slide">
+  <h1>メルマガ「影褒めLUCKGO！」</h1>
+  <h2>登録はこちら</h2>
+  <div id="qrcode" style="display:inline-block; background:#fff; padding:14px; border-radius:10px; margin-top:20px;"></div>
+  <p style="margin-top:16px; font-size:0.7em; color:#bdc3c7;">winning-crafter-4888.kit.com</p>
+  <p style="margin-top:20px;">ご清聴ありがとうございました</p>
+</section>
+
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@4/dist/reveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: true,
+    transition: 'slide',
+    transitionSpeed: 'fast',
+    controls: true,
+    progress: true,
+    center: true,
+    width: 1280,
+    height: 720,
+  });
+
+  new QRCode(document.getElementById('qrcode'), {
+    text: 'https://winning-crafter-4888.kit.com/0601913005?utm_source=tahara',
+    width: 200,
+    height: 200,
+    colorDark: '#2c3e50',
+    colorLight: '#ffffff',
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+</body>
+</html>
